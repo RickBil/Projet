@@ -1,16 +1,22 @@
 package models;
 
+import java.util.ArrayList;
+
 import services.services;
 
 public class EV extends Enseignant implements services {
     
     private double salaireH;
     private double TH;
+    public static int calcul;
+    public static double var;
+    // protected ArrayList<Module> modules;
     
     public EV(String nom, String prenom, String grade, double salaireH, double tH) {
         super(nom, prenom, grade);
         this.salaireH = salaireH;
         TH = tH;
+        modules = new ArrayList<Module>();
     }
     public double getSalaireH() {
         return salaireH;
@@ -31,8 +37,29 @@ public class EV extends Enseignant implements services {
 
     @Override
     public void salaire() {
-        // TODO Auto-generated method stub
+        String x;
+        String y = "Ingenieur";
+        String w = "Doctor";
+        String z = "Professeur";
+        x = getGrade();
+        if (x==y) {
+             var = (10000*getCalcul());
+        }else if ( x==w ){
+             var = (15000*getCalcul());
+        }else if ( x==z ){
+             var = (25000*getCalcul());
+        }
+        double brut = var;
+        double taxe = brut *0.05;
+        double net = brut - taxe;
+        System.out.println("Salaire : "+net);
       
+    }
+    public static int getCalcul() {
+        return calcul;
+    }
+    public static void setCalcul(int calcul) {
+        EV.calcul = calcul;
     }
 
     @Override

@@ -1,24 +1,41 @@
 package models;
 
+import java.util.ArrayList;
+
 import services.services;
 
 public class EC extends Enseignant implements services{
-   
-    private final double salaireBase = 350000;    
     
+    // protected ArrayList<Module> modules;
+    private final double salaireBase = 200000;    
+    public static int calcul;
+
+
     public EC(String nom, String prenom, String grade) {
         super(nom, prenom, grade);
+        // modules = new ArrayList<Module>();
     }
 
 
     public double getSalaireBase() {
         return salaireBase;
     }
+    public static int getCalcul() {
+        return calcul;
+    }
+
+
+    public static void setCalcul(int calcul) {
+        EC.calcul = calcul;
+    }
 
     @Override
     public void salaire() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'salaire'");
+        
+        double brut = (salaireBase +(5000*getCalcul()));
+        double taxe = brut *0.1;
+        double net = brut - taxe;
+        System.out.println("Salaire : "+net);
     }
 
     @Override

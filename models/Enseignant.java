@@ -65,5 +65,11 @@ public abstract class Enseignant implements Serializable{
     public void setDepartement(Departement departement) {
         this.departement = departement;
     }
+    public ArrayList<Module> getModules() {
+        return modules;
+    }
+    public void setModules(ArrayList<Module> modules) {
+        this.modules = modules;
+    }
     
 }
