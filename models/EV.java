@@ -12,11 +12,11 @@ public class EV extends Enseignant implements services {
     public static double var;
     // protected ArrayList<Module> modules;
     
-    public EV(String nom, String prenom, String grade, double salaireH, double tH) {
+    public EV(String nom, String prenom, String grade) {
         super(nom, prenom, grade);
-        this.salaireH = salaireH;
-        TH = tH;
-        modules = new ArrayList<Module>();
+        // this.salaireH = salaireH;
+        // TH = tH;
+        // modules = new ArrayList<Module>();
     }
     public double getSalaireH() {
         return salaireH;
