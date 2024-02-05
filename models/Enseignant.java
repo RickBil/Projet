@@ -9,7 +9,7 @@ public abstract class Enseignant implements Serializable{
     protected String nom;
     protected String prenom;
     protected String grade;
-    private static int compteur = 0;
+    private static int compteur = 000;
     protected ArrayList<Module> modules;
     protected Departement departement;
 
@@ -72,5 +72,6 @@ public abstract class Enseignant implements Serializable{
         this.modules = modules;
     }
     public abstract void affiche();
+    public abstract double salaire();
     
 }

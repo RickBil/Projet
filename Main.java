@@ -20,7 +20,7 @@ public class Main {
         List<Module> listModules = new ArrayList<Module>();
         Scanner sc = new Scanner(System.in);
         String nom,nomd, prenom, grade, code,libelle,numero;
-        Base base,ase  = new Base();
+        Base base = new Base();
         int heure;
         int choix=0;
         do {
@@ -70,7 +70,7 @@ public class Main {
                     heure = sc.nextInt();
                     Module x1 = new Module(numero,libelle,heure);
                     listModules.add(x1);
-                    base.ecrireFichierModule(listModules);
+                    // base.ecrireFichierModule(listModules);
                     
                     break;                
                 case 4:
@@ -80,7 +80,7 @@ public class Main {
                     System.out.println("Quel type d'enseignant voulez créer ?");
                     System.out.println("1 : Enseignant Chercher");
                     System.out.println("2 : Enseignant Vacataire");
-                    System.out.println("3 : Retour");
+                    System.out.println("3 : Retour au menu precedent");
                     int c = sc.nextInt();
                     do {
                         switch (c){
@@ -122,7 +122,7 @@ public class Main {
                     System.out.println("1 : Lister tous les enseignants ");
                     System.out.println("2 : Lister les enseignants chercher");
                     System.out.println("3 : Lister les enseignants vacataire");
-                    System.out.println("4 : Retour");
+                    System.out.println("4 : Retour au menu precedent");
                     int w = sc.nextInt();
                     do {
                         switch (w) 
@@ -180,7 +180,7 @@ public class Main {
                     System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
                     System.out.println("1 : Affecter un enseignant à un department");
                     System.out.println("2 : Affecter un module à un enseignant ");
-                    System.out.println("3 : Retour");
+                    System.out.println("3 : Retour au menu precedent");
                     int q = sc.nextInt();
                     do {
                         switch (q) 
@@ -191,17 +191,107 @@ public class Main {
                                 String searchD;
                                 Enseignant e = null;
                                 Departement d = null;
-                                System.out.println("Entrer le matricule de l'Enseignant : ");
-                                searchE = sc.nextInt();
-                                for (Enseignant i : listEnseignants)    
+                                System.out.println("Entrer le code du departement : ");
+                                searchD = sc.next();
+                                for (Departement i : listDepartements)
                                 {
-                                    if (searchE.equals(i.getMat())){
-                                        e = i;
+                                    if (searchD.equals(i.getCode())){
+                                        d = i;
                                         break;
                                     }
                                 }
+                                {  
+                                    System.out.println("Rechercher l'enseigant à affecter");
+                                    System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                                    System.out.println("1 : Faire la recherche ");
+                                    System.out.println("2 : Retour au menu precedent");
+                                    int i = sc.nextInt();
+                                    do {
+                                        switch (i) 
+                                        {
+                                            case 1:
+                                                System.out.println("Entrer le matricule de l'enseignant : ");
+                                                searchE = sc.nextInt();
+                                                for (Enseignant ee : listEnseignants)    
+                                                {
+                                                    if (searchE.equals(ee.getMat()))
+                                                    {
+                                                        e = ee;
+                                                        break;
+                                                    }
+                                                }
+                                                if (e==null)
+                                                System.out.println("Le matricule saisi est incorrect !");
+                                                else
+                                                {
+                                                    e.setDepartement(d);
+                                                    d.getEnseignants().add(e);
+                                                }
+                                                System.out.println("Affectation reussite !");
+                                                break;
+                                            case 2:
+                                                System.out.println("Retour");
+                                                break;
+                                            default:
+                                                System.out.println("Choix incorrect!");
+                                        }
+                                        
+                                    } while (i != 2); 
+                                }
+                               
                                 break;
                             case 2:
+                                Integer searchEx;
+                                String searchM;
+                                Enseignant ex = null;
+                                Module m = null;
+                                System.out.println("Entrer le matricule de l'enseignant : ");
+                                searchEx = sc.nextInt();
+                                for (Enseignant i : listEnseignants)
+                                {
+                                    if (searchEx.equals(i.getMat())){
+                                        ex = i;
+                                        break;
+                                    }
+                                }
+                                {
+                                    System.out.println("Rechercher le module à affecter");
+                                    System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                                    System.out.println("1 : Faire la recherche ");
+                                    System.out.println("2 : Retour au menu precedent");
+                                    int i = sc.nextInt();
+                                    do {
+                                        switch (i) 
+                                        {
+                                            case 1:
+                                                System.out.println("Entrer le numero du module : ");
+                                                searchM = sc.next();
+                                                for (Module mm : listModules)    
+                                                {
+                                                    if (searchM.equals(mm.getNumero()))
+                                                    {
+                                                        m = mm;
+                                                        break;
+                                                    }
+                                                }
+                                                if (m==null)
+                                                System.out.println("Le numero saisi est incorrect!");
+                                                else
+                                                {
+                                                    m.setEnseignant(ex);
+                                                    ex.getModules().add(m);
+                                                }
+                                                System.out.println("Affectation reussite!");
+                                                break;
+                                            case 2:
+                                                System.out.println("Retour");
+                                                break;
+                                            default:
+                                                System.out.println("Choix incorrect!");
+                                        }
+                                        
+                                    } while (i != 2); 
+                                }
                                 break;
                             case 3:
                                 System.out.println("Retour");
@@ -213,6 +303,26 @@ public class Main {
                     } while (q != 3 );
                     break;                
                 case 8:
+                    double sale=0;
+                    System.out.println("La masse salarialle");
+                    System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                    for ( Departement dep : listDepartements)
+                    {
+                        for( Enseignant ens : listEnseignants)
+                        {
+                            if (dep.getCode().equals(ens.getDepartement().getCode()))
+                            {
+                               double net=ens.salaire(); 
+                               sale = sale + net;
+                            } else {
+                                continue; 
+                            }
+                        }
+                        nom = dep.getNom();
+                        code = dep.getCode();
+                        System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                        System.out.println(" Departement : "+nom+" Masse salarialle : "+sale);
+                    }
                     break;
                 case 9:
                     break;

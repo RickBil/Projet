@@ -36,7 +36,7 @@ public class EV extends Enseignant implements services {
 
 
     @Override
-    public void salaire() {
+    public double salaire() {
         String x;
         String y = "Ingenieur";
         String w = "Doctor";
@@ -52,7 +52,8 @@ public class EV extends Enseignant implements services {
         double brut = var;
         double taxe = brut *0.05;
         double net = brut - taxe;
-        System.out.println("Salaire : "+net);
+        // System.out.println("Salaire : "+net);
+        return net;
       
     }
     public static int getCalcul() {

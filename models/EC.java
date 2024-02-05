@@ -30,12 +30,13 @@ public class EC extends Enseignant implements services{
     }
 
     @Override
-    public void salaire() {
+    public double salaire() {
         
         double brut = (salaireBase +(5000*getCalcul()));
         double taxe = brut *0.1;
         double net = brut - taxe;
-        System.out.println("Salaire : "+net);
+        // System.out.println("Salaire : "+net);
+        return net;
     }
 
     @Override
@@ -63,4 +64,9 @@ public class EC extends Enseignant implements services{
     }
 
     
+
+
+
+
+
 }
