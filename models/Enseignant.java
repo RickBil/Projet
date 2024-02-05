@@ -71,5 +71,6 @@ public abstract class Enseignant implements Serializable{
     public void setModules(ArrayList<Module> modules) {
         this.modules = modules;
     }
+    public abstract void affiche();
     
 }
