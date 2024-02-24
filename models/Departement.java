@@ -34,7 +34,7 @@ public class Departement implements serviceOutils
     }
     @Override
     public void affiche() {
-        // TODO Auto-generated method stub
+        
         System.out.println("Nom"+getNom());
         System.out.println("Code"+getCode());
         // System.out.println(this.enseignants);

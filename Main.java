@@ -34,7 +34,7 @@ public class Main {
             System.out.println("8 : Voir les salaires des departements : ");
             System.out.println("9 : Quitter l'application : ");
             choix = sc.nextInt();
-            sc.nextInt();
+            // sc.nextInt();
             switch (choix) {
                 
                 case 1:
@@ -46,10 +46,10 @@ public class Main {
                     nomd = sc.next();
                     Departement x = new Departement(code,nomd);
                     listDepartements.add(x);
-                    base.ecrireFichierDepartement(listDepartements);
+                    // base.ecrireFichierDepartement(listDepartements);
                     break;
                 case 2:
-                    listDepartements = base.lireFichierDepartement();
+                    // 1listDepartements = base.lireFichierDepartement();
                     for (Departement i : listDepartements) 
                     {
                         System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
@@ -74,46 +74,52 @@ public class Main {
                     
                     break;                
                 case 4:
-                    
+                    for (Module i : listModules) 
+                    {
+                        System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                        i.affiche();
+                    }
+                    {
+                        System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                    }
                     break;                
                 case 5:
-                    System.out.println("Quel type d'enseignant voulez créer ?");
-                    System.out.println("1 : Enseignant Chercher");
-                    System.out.println("2 : Enseignant Vacataire");
-                    System.out.println("3 : Retour au menu precedent");
-                    int c = sc.nextInt();
+                int c;
                     do {
-                        switch (c){
-                            case 1:
-                                System.out.println("Saisir les informations de l'Enseignant Chercher");
-                                System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
-                                System.out.println("Saisir le nom");
-                                nom = sc.next();
-                                System.out.println("Saisir le prenom");
-                                prenom = sc.next();
-                                System.out.println("Saisir le grade Ingenieur/Docteur/Professeur");
-                                grade = sc.next();
-                                Enseignant x2 = new EC(nom,prenom,grade);
-                                listEnseignants.add(x2);
-                                base.ecrireFichierEnseignant(listEnseignants);
-                                break;
-                            case 2:
-                                System.out.println("Saisir les informations de l'Enseignant Vacataire");
-                                System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
-                                System.out.println("Saisir le nom");
-                                nom = sc.next();
-                                System.out.println("Saisir le prenom");
-                                prenom = sc.next();
-                                System.out.println("Saisir le grade Ingenieur/Docteur/Professeur");
-                                grade = sc.next();
-                                Enseignant x3 = new EV(nom,prenom,grade);
-                                listEnseignants.add(x3);
-                                base.ecrireFichierEnseignant(listEnseignants);
-                                break;
-                            case 3:
+                        System.out.println("Quel type d'enseignant voulez créer ?");
+                        System.out.println("1 : Enseignant Chercher");
+                        System.out.println("2 : Enseignant Vacataire");
+                        System.out.println("3 : Retour au menu precedent");
+                        c = sc.nextInt();
+                            if (c<=2){
+                                if (c == 1) {
+                                    System.out.println("Saisir les informations de l'Enseignant Chercher");
+                                    System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                                    System.out.println("Saisir le nom");
+                                    nom = sc.next();
+                                    System.out.println("Saisir le prenom");
+                                    prenom = sc.next();
+                                    System.out.println("Saisir le grade Ingenieur/Docteur/Professeur");
+                                    grade = sc.next();
+                                    Enseignant x2 = new EC(nom,prenom,grade);
+                                    listEnseignants.add(x2);
+                                    System.out.println(" Enseignant successful");
+                                }else{
+                                    System.out.println("Saisir les informations de l'Enseignant Vacataire");
+                                    System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+                                    System.out.println("Saisir le nom");
+                                    nom = sc.next();
+                                    System.out.println("Saisir le prenom");
+                                    prenom = sc.next();
+                                    System.out.println("Saisir le grade Ingenieur/Docteur/Professeur");
+                                    grade = sc.next();
+                                    Enseignant x3 = new EV(nom,prenom,grade);
+                                    listEnseignants.add(x3);
+                                    System.out.println("Enseignant successful");
+                                }
+                            }else{
                                 System.out.println("Retour");
-                                break;
-                        }
+                            }
                     } while(c !=3);
                     break;
                 case 6:
@@ -128,7 +134,7 @@ public class Main {
                         switch (w) 
                         {
                             case 1:
-                                listEnseignants = base.lireFichierEnseignant();
+                                // listEnseignants = base.lireFichierEnseignant();
                                 for (Enseignant e : listEnseignants) 
                                 {
                                     System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
@@ -139,7 +145,7 @@ public class Main {
                                 }
                                 break;
                             case 2:
-                                listEnseignants = base.lireFichierEnseignant();
+                                // listEnseignants = base.lireFichierEnseignant();
                                 for (Enseignant e : listEnseignants)    
                                 {   if (e instanceof EC)
                                     {
@@ -153,7 +159,7 @@ public class Main {
                                 }
                                 break;
                             case 3:
-                                listEnseignants = base.lireFichierEnseignant();
+                                // listEnseignants = base.lireFichierEnseignant();
                                 for (Enseignant e : listEnseignants)    
                                 {   if (e instanceof EV)
                                     {

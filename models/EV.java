@@ -87,7 +87,7 @@ public class EV extends Enseignant implements services {
 
     @Override
     public void ajouterModule(java.lang.Module module) {
-        // TODO Auto-generated method stub
+        
         throw new UnsupportedOperationException("Unimplemented method 'ajouterModule'");
     }
     @Override

@@ -1,0 +1,54 @@
+// import java.util.ArrayList;
+// import java.util.List;
+// import java.util.Scanner;
+
+// import data.Base;
+// import models.Departement;
+// import models.Enseignant;
+
+public class App {
+    public static void main(String[] args) {
+        
+       if (condition:var(boolean)) {
+        
+       } else {
+        
+       } if (condition:var(boolean)) {
+        
+       }
+    }
+}
+switch (c){
+    case 1:
+        System.out.println("Saisir les informations de l'Enseignant Chercher");
+        System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+        System.out.println("Saisir le nom");
+        nom = sc.next();
+        System.out.println("Saisir le prenom");
+        prenom = sc.next();
+        System.out.println("Saisir le grade Ingenieur/Docteur/Professeur");
+        grade = sc.next();
+        Enseignant x2 = new EC(nom,prenom,grade);
+        listEnseignants.add(x2);
+        System.out.println(" Enseignant successful");
+        break;
+        // base.ecrireFichierEnseignant(listEnseignants);
+    case 2:
+        System.out.println("Saisir les informations de l'Enseignant Vacataire");
+        System.out.println("-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --");
+        System.out.println("Saisir le nom");
+        nom = sc.next();
+        System.out.println("Saisir le prenom");
+        prenom = sc.next();
+        System.out.println("Saisir le grade Ingenieur/Docteur/Professeur");
+        grade = sc.next();
+        Enseignant x3 = new EV(nom,prenom,grade);
+        listEnseignants.add(x3);
+        System.out.println("Enseignant successful");
+        break;
+        // base.ecrireFichierEnseignant(listEnseignants);
+    case 3:
+        System.out.println("Retour");
+        break;
+    // c = 0;
+}

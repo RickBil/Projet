@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 import services.services;
 
 public class EC extends Enseignant implements services{
@@ -49,7 +47,7 @@ public class EC extends Enseignant implements services{
     }
     @Override
     public void ajouterModule(java.lang.Module module) {
-        // TODO Auto-generated method stub
+    
         throw new UnsupportedOperationException("Unimplemented method 'ajouterModule'");
     }
 
